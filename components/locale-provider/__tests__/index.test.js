@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import MockDate from 'mockdate';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Select, Transfer } from '../../';
 import enGB from '../en_GB';
@@ -80,15 +81,16 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
+    MockDate.set(new Date('2016-11-22').getTime());
     locales.forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
         </LocaleProvider>
       );
-      const DatePickerPlaceholder = wrapper.find('.ant-calendar-picker-input').at(0).node.getAttribute('placeholder');
-      expect(DatePickerPlaceholder).toBe(locale.DatePicker.lang.placeholder);
+      expect(wrapper).toMatchSnapshot();
     });
+    MockDate.reset();
   });
 
   it('should change locale of Modal.xxx', () => {
