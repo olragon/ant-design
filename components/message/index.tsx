@@ -84,7 +84,8 @@ function notice(args: ArgsProps): MessageType {
       instance.notice({
         key: target,
         duration,
-        style: {},
+        style: args.style,
+        className: args.className,
         content: (
           <div
             className={`${prefixCls}-custom-content${
@@ -129,6 +130,8 @@ export interface ConfigOptions {
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const api: any = {
