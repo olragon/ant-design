@@ -108,6 +108,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   clearIcon={<CloseCircleFilled />}
                   allowClear
                   transitionName="slide-up"
+                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}                  
                   {...additionalProps}
                   {...restProps}
                   {...additionalOverrideProps}
@@ -119,10 +123,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
                   components={Components}
                   direction={direction}
                 />
